@@ -2,9 +2,9 @@ class WeatherModel {
   final String cityName;
   final String date;
   final String? image;
-  final String tempe;
-  final String maxtemp;
-  final String mintemp;
+  final double tempe;
+  final double maxtemp;
+  final double mintemp;
   final String condition;
 
   WeatherModel({
@@ -21,11 +21,9 @@ class WeatherModel {
       cityName: json['location']['name'],
       date: json['current']['last_updated'],
       image: json['forecast']['forecastday'][0]['day']['condition']['icon'],
-      tempe: json['forecast']['forecastday'][0]['day']['avgtemp_c'].toString(),
-      maxtemp:
-          json['forecast']['forecastday'][0]['day']['maxtemp_c'].toString(),
-      mintemp:
-          json['forecast']['forecastday'][0]['day']['mintemp_c'].toString(),
+      tempe: json['forecast']['forecastday'][0]['day']['avgtemp_c'],
+      maxtemp: json['forecast']['forecastday'][0]['day']['maxtemp_c'],
+      mintemp: json['forecast']['forecastday'][0]['day']['mintemp_c'],
       condition: json['forecast']['forecastday'][0]['day']['condition']['text'],
     );
   }
