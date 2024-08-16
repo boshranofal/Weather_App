@@ -19,7 +19,7 @@ class SearchViews extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
               labelText: 'Search',
               hintText: 'Enter City Name',
-              suffixIcon: Icon(Icons.search),
+              suffixIcon: const Icon(Icons.search),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
