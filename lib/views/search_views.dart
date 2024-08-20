@@ -1,11 +1,6 @@
-//import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
-
-import 'dart:developer';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/weather_model.dart';
-import 'package:weather_app/services/weather_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubit/get_weather_cubit/get_weather_cubit.dart';
 
 class SearchViews extends StatelessWidget {
   const SearchViews({super.key});
@@ -22,8 +17,8 @@ class SearchViews extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (value) async {
-              WeatherModel weatherModel =
-                  await WeatherService(dio: Dio()).getWeather(cityName: value);
+              var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
+              getWeatherCubit.getWeather(cityName: value);
               Navigator.of(context).pop();
             },
             decoration: InputDecoration(
