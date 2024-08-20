@@ -9,6 +9,7 @@ class WeatherModel {
   final String condition;
   final int humidity;
   final double windSpeed;
+  final List hourWeather;
 
   WeatherModel({
     required this.cityName,
@@ -20,6 +21,7 @@ class WeatherModel {
     required this.condition,
     required this.humidity,
     required this.windSpeed,
+    required this.hourWeather,
   });
   factory WeatherModel.fromJson(json) {
     return WeatherModel(
@@ -32,6 +34,7 @@ class WeatherModel {
       condition: json['forecast']['forecastday'][0]['day']['condition']['text'],
       humidity: json['forecast']['forecastday'][0]['day']['avghumidity'],
       windSpeed: json['forecast']['forecastday'][0]['day']['maxwind_kph'],
+      hourWeather: json['forecast']['forecastday'][0]['hour'],
     );
   }
 }
